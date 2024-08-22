@@ -1,0 +1,649 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Reveal.js Presentation</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/reveal.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/theme/white.min.css" id="theme">
+    <link rel="stylesheet" href="custom-styles.css">
+
+</head>
+<body>
+    <div class="reveal">
+        <div class="slides">
+            <section data-background-image="./white_background.jpg">
+                <h1>AI for the Life Sciences</h1>
+                <h2>an overview</h2>
+                <br>
+                <div style="margin-top: 120px;">
+                    Cédric Travelletti<br>HES-SO Valais-Wallis Institute of Informatics, EPFL MathMat Group
+                </div>
+            </section>
+            <section data-auto-animate data-background-image="./white_background.jpg">
+                    <h2>Goal for today</h2>
+                    <p>Foster collaborative innovation at the intersection of ML and Life Sciences within the HES ecosystem.</p>
+            </section>
+            <section data-auto-animate data-background-image="./white_background.jpg">
+                <h2>Goal for today</h2>
+                <p>Foster collaborative innovation at the intersection of ML and Life Sciences within the HES ecosystem.</p>
+                <ul>
+                    <li>Give an overview of the main "flavors" of ML</li>
+                    <li>Make you see the potential of ML in your field</li>
+                    <li>Raise awareness about needs and limitations</li>
+                </ul>
+            </section>
+
+            <section data-auto-animate>
+                <h2>What is ML?</h2>
+            </section>
+            <section data-auto-animate>
+                <h2>What is ML?</h2>
+                <h3>At the core  ML = Statistics + Computing Power (... and a whole lot of data)</h3>
+            </section>
+
+            <section data-auto-animate>
+                <h2>Where does the <span class="stronger">learning</span> come from</h2>
+                <h3>At the core  ML = Statistics + Computing Power (... and a whole lot of data)</h3>
+                <div class="image-grid">
+                    <img src="./data_notrain.png">
+                </div>
+            </section>
+            <section data-auto-animate data-transition="none">
+                <h2>Where does the <span class="stronger">learning</span> come from</h2>
+                <h3>At the core  ML = Statistics + Computing Power (... and a whole lot of data)</h3>
+                <div class="image-grid">
+                    <img src="./data_train.png">
+                </div>
+                <h2>... and an <span class="stronger">objective</span></h2>
+                <div data-id="eq">
+                    \[\mathcal{L}(\textrm{prediction}, \textrm{target}) = \mathrm{error}^p + \textrm{generalization term}\]
+                </div>
+            </section>
+            <section data-auto-animate data-transition="none">
+                <h2>Where does the <span class="stronger">learning</span> come from</h2>
+                <h3>At the core  ML = Statistics + Computing Power (... and a whole lot of data)</h3>
+                <div class="image-grid">
+                    <img src="./data_train.png">
+                </div>
+                <div data-id="eq">
+                    \[\mathcal{L}(\textrm{prediction}, \textrm{target}) = \mathrm{error}^p + \textrm{generalization term}\]
+                </div>
+                <ul>
+                    <li>Requires <span class="stronger">pairs of training data + target output</span></li>
+                    <li>Need to specify <span class="stronger">objective</span> (loss function)</li>
+                    <li>Model iteratively tuned to improve <span class="stronger">accuracy (diminish loss) on training data</span></li>
+                </ul>
+            </section>
+            <section data-auto-animate data-transition="none">
+                <h2>Where does the <span class="stronger">learning</span> come from</h2>
+                <h3>At the core  ML = Statistics + Computing Power (... and a whole lot of data)</h3>
+                <div class="image-grid">
+                    <img src="./data_train.png">
+                </div>
+                <div data-id="eq">
+                    \[\mathcal{L}(\textrm{prediction}, \textrm{target}) = \mathrm{error}^p + \textrm{generalization term}\]
+                </div>
+                <ul>
+                    <li>Requires <span class="stronger">pairs of training data + target output</span></li>
+                    <li>Need to specify <span class="stronger">objective</span> (loss function)</li>
+                    <li>Model iteratively tuned to improve <span class="stronger">accuracy (diminish loss) on training data</span></li>
+                </ul>
+                <div>
+                <h3>Limitations</h3>
+                <ul>
+                    <li>Need labelled data (most of the time)</li>
+                    <li>Hard to ensure generalization (overfitting)</li>
+                </ul>
+                </div>
+            </section>
+            
+
+
+
+
+            <section data-auto-animate>
+                <h2>What ML tries to solve</h2>
+                <p>
+                At the abstract level, we always have two ingredients:
+                </p>
+                <ul>
+                    <li>Input data $x_1, x_2, ...$</li>
+                    <li>Output data $f(x_1), f(x_2), ...$</li>
+                </ul>
+            </section>
+
+            <section data-auto-animate>
+                <h2>What ML tries to solve</h2>
+                <p>
+                    At the abstract level, we always have two ingredients:
+                </p>
+                <ul>
+                    <li>Input data $x_1, x_2, ...$</li>
+                    <li>Output data $f(x_1), f(x_2), ...$</li>
+                </ul>
+                <p>The task is then usually one of the following</p>
+                <div data-id="animcontainer" class="tiles-container">
+                    <div data-id="anim" class="tile tile-style2">
+                        <h4 class="h4-style1">Inference & Prediction</h4>
+                        <p class="h4-style2">Given $x$ predict $f(x)$</p>
+                        <p class="h4-style2"><br></p>
+                    </div>
+        
+                    <div data-id="anim2" class="tile tile-style2">
+                        <h4 class="h4-style1">Pattern Discovery</h4>
+                        <p class="h4-style2">Group $x_i$'s' that have similar values of $f(x_i)$</p>
+                        <p class="h4-style2">Find component of $x$ that has most effect on $f(x)$</p>
+
+
+                    </div>
+        
+                    <div class="tile tile-style2">
+                        <h4 class="h4-style1">Optimization & Action</h4>
+                        <p class="h4-style2">Find $x$ that has maximal $f(x)$</p>
+                    </div>
+        
+                    <div class="tile tile-style2">
+                        <h4 class="h4-style1">Generation</h4>
+                        <p class="h4-style2">Generate new $x_i$'s' that have similar $f(x_i)$ as $f(x)$</p>
+                    </div>
+                </div>
+            </section>
+
+            <section data-auto-animate data-background-image="./materials.jpg">
+                <h2 style="color: rgb(247, 244, 244); text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black, 1px 1px 0 black;">Example Problem: Creating new materials</h2>
+                <div data-id="animcontainer" class="tiles-container">
+                    <div class="tile tile-style-alpha">
+                        <h4 class="h4-style1">Inference & Prediction</h4>
+                    </div>
+        
+                    <div class="tile tile-style-alpha">
+                        <h4 class="h4-style1">Pattern Discovery</h4>
+                    </div>
+        
+                    <div class="tile tile-style-alpha">
+                        <h4 class="h4-style1">Optimization & Action</h4>
+                    </div>
+        
+                    <div class="tile tile-style-alpha">
+                        <h4 class="h4-style1">Generation</h4>
+                    </div>
+                </div>
+                <div>
+                    <br>
+                <img height=500px" src="./Ingredients.png">
+                </div>
+            </section>      
+
+            <section data-auto-animate data-auto-animate-unmatched=true data-background-image="./materials.jpg">
+                <div class="tiles-container">
+                    <div class="tile tile-style2">
+                        <h4 class="h4-style1">Inference & Prediction</h4>
+                    </div>
+                </div>
+                <h4 style="color: rgb(247, 244, 244); text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black, 1px 1px 0 black;">Given ingredients => predict properties (soft? conductive?)</h4>
+                <br>
+                <div class="tiles-container">
+                    <div class="tile tile-style2">
+                        <h4 class="h4-style1">Optimization & Action</h4>
+                    </div>
+                </div>
+                <h4 style="color: rgb(247, 244, 244); text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black, 1px 1px 0 black;" >Find mix of ingredients that give the best properties</h4>
+                <br>
+                <div class="tiles-container">
+                    <div class="tile tile-style2">
+                        <h4 class="h4-style1">Generation</h4>
+                    </div>
+                </div>
+                <h4 style="color: rgb(247, 244, 244); text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black, 1px 1px 0 black;">Propose new recipes that give similar properties</h4>
+                <br>
+                <div class="tiles-container">
+                    <div class="tile tile-style2">
+                        <h4 class="h4-style1">Pattern Discovery</h4>
+                    </div>
+                </div>
+                <h4 style="color: rgb(247, 244, 244); text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black, 1px 1px 0 black;">Find ingredient that has most effect on outcome</h4>
+            </section>
+
+            <section data-auto-animate>
+                <h2>Choice of method depends on data</h2>
+                <h4><span class="myblue">Small</span> data vs <span class="mygreen">Big</span> data</h4>
+                <div data-id="animcontainer" class="tiles-container">
+                    <div data-id="anim" class="tile tile-style2">
+                        <h4 class="h4-style1">Inference & Prediction</h4>
+                        <div class="rounded-box-small-data">
+                        <ul>
+                            <li>Kernel / Bayesian Methods</li>
+                            <li>Decision Trees</li>
+                        </ul>
+                        </div>
+                        <div class="rounded-box-big-data">
+                        <ul>
+                            <li>Deep Learning</li>
+                        </ul>
+                        </div>
+                    </div>
+        
+                    <div data-id="anim2" class="tile tile-style2">
+                        <h4 class="h4-style1">Pattern Discovery</h4>
+                        <ul>
+                            <li>Clustering / Dim. reduction</li>
+                            <li>Causal ML</li>
+                        </ul>
+                    </div>
+        
+                    <div class="tile tile-style2">
+                        <h4 class="h4-style1">Optimization & Action</h4>
+                        <div class="rounded-box-small-data">
+                        <ul>
+                            <li>(Bayesian) Optimization</li>
+                        </ul>
+                        </div>
+                            <div class="rounded-box-big-data">
+                            <ul>
+                                <li>Reinforcement Learning</li>
+                            </ul>
+                            </div>
+                    </div>
+        
+                    <div class="tile tile-style2">
+                        <h4 class="h4-style1">Generation</h4>
+                        <div class="rounded-box-big-data">
+                        <ul>
+                            <li>Generative adversarial networks</li>
+                            <li>Large language models</li>
+                        </ul>
+                        </div> 
+                    </div>
+                </div>
+            </section>
+
+
+            <section data-auto-animate>
+                <h2>... and on goal</h2>
+                <h4><span class="mybrown">Deterministic</span> vs <span class="myyellow">Probabilistic</span></h4>
+                <div>
+                    <img src="./probabilistic_vs_deterministic.png">
+                </div>
+            </section>
+            <section data-auto-animate>
+                <h2>... and on goal</h2>
+                <h4><span class="mybrown">Deterministic</span> vs <span class="myyellow">Probabilistic</span></h4>
+                <div data-id="animcontainer" class="tiles-container">
+                    <div data-id="anim" class="tile tile-style2">
+                        <h4 class="h4-style1">Inference & Prediction</h4>
+                        <div class="rounded-box-probabilistic">
+                        <ul>
+                            <li>Kernel / Bayesian Methods</li>
+                            <li>Decision Trees</li>
+                        </ul>
+                        </div>
+                        <div class="rounded-box-deterministic">
+                        <ul>
+                            <li>Deep Learning</li>
+                        </ul>
+                        </div>
+                    </div>
+        
+                    <div data-id="anim2" class="tile tile-style2">
+                        <h4 class="h4-style1">Pattern Discovery</h4>
+                        <div class="rounded-box-deterministic">
+                        <ul>
+                            <li>Clustering / Dim. reduction</li>
+                            <li>Anomaly detection</li>
+                        </ul>
+                        </div>
+                        <div class="rounded-box-probabilistic">
+                            <ul>
+                                <li>Causal ML</li>
+                            </ul>
+                            </div>
+                    </div>
+        
+                    <div class="tile tile-style2">
+                        <h4 class="h4-style1">Optimization & Action</h4>
+                        <div class="rounded-box-probabilistic">
+                        <ul>
+                            <li>(Bayesian) Optimization</li>
+                        </ul>
+                            <ul>
+                                <li>Reinforcement Learning</li>
+                            </ul>
+                        </div>
+                    </div>
+        
+                    <div class="tile tile-style2">
+                        <h4 class="h4-style1">Generation</h4>
+                        <div class="rounded-box-probabilistic">
+                        <ul>
+                            <li>Generative adversarial networks</li>
+                            <li>Large language models</li>
+                        </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
+
+
+            <section data-auto-animate data-transition="none">
+                <h1>Deep Dive</h1>
+                <h2>Bayesian Optimization</h2>
+            </section>
+            <section data-auto-animate data-transition="none">
+                <h2>Bayesian Optimization</h2>
+                Consider a function that we want to maximize (efficiency, yield, etc.)
+                <p>
+                \[\begin{aligned} \rho^*: \mathbf{X} \rightarrow \mathbf{Y} \end{aligned} \]
+                </p>
+                Problem: $\rho^*$ is expensive to evaluate (simulations, lab experiments, ...) => cannot use traditional methods 
+            </section>
+
+            <section data-auto-animate>
+                <h2>Bayesian Optimization</h2>
+                Consider a function that we want to maximize (efficiency, yield, etc.)
+                <p>
+                \[\begin{aligned} \rho^*: \mathbf{X} \rightarrow \mathbf{Y} \end{aligned} \]
+                </p>
+                Problem: $\rho^*$ is expensive to evaluate (simulations, lab experiments, ...) => cannot use traditional methods 
+                <div>
+                <br>
+                <p>Focus on cases where objective $\rho^*$is:</p>
+                <ul>
+                    <li>Black box (<span class="stronger">No gradients</span>)</li>
+                    <li><span class="stronger">Expensive</span> to compute</li>
+                    <li><span class="stronger">Noisy</span> observations</li>
+                </ul>
+                </div>
+            </section>
+
+            <section data-auto-animate>
+                <h2>Bayesian Optimization</h2>
+                Consider a function that we want to maximize (efficiency, yield, etc.)
+                <p>
+                \[\begin{aligned} \rho^*: \mathbf{X} \rightarrow \mathbf{Y} \end{aligned} \]
+                </p>
+                Problem: $\rho^*$ is expensive to evaluate (simulations, lab experiments, ...) => cannot use traditional methods 
+                <div>
+                <br>
+                <p>Focus on cases where objective $\rho^*$is:</p>
+                <ul>
+                    <li>Black box (<span class="stronger">No gradients</span>)</li>
+                    <li><span class="stronger">Expensive</span> to compute</li>
+                    <li><span class="stronger">Noisy</span> observations</li>
+                </ul>
+                </div>
+                <div class="image-grid">
+                    <div class="tile tile-style3">
+                        <img src="lab_example.jpg">
+                        <p>Lab experiment (no gradients)</p>
+                    </div>
+                    <div class="tile tile-style3">
+                        <img src="protein_example.jpg" alt="Example 2">
+                        <p>Expensive simulation</p>
+                    </div>
+                    <div class="tile tile-style3">
+                        <img src="survey_example.jpg" alt="Example 3">
+                        <p>Noisy survey</p>
+                    </div>
+                </div>
+            </section>
+
+
+            <section data-auto-animate data-transition="none">
+                <h2>Idea: include prior knowledge</h2>
+                <img height=600px" src="./images/ground_truth_no_data.png">
+            </section>
+            <section data-auto-animate=>
+                <h2>Idea: include prior knowledge</h2>
+                <div>
+                    <ul>
+                        <li>use prior knowledge to construct a class of functions to which $\rho^*$ belongs (GP).</li>
+                    </ul>
+                </div>
+                <img height=600px" src="./images/variance_prior_with_samples.png">
+            </section>
+            <section data-auto-animate data-transition="none">
+                <div>
+                    <ul>
+                        <li>Use prior knowledge to construct a class of functions to which $\rho^*$ belongs (GP).</li>
+                        <li>Observe some data.</li>
+                    </ul>
+                </div>
+                <img height="600px" src="./images/ground_truth_with_data.png">
+            </section>
+            <section data-auto-animate data-transition="none">
+                <div>
+                    <ul>
+                        <li>Use prior knowledge to construct a class of functions to which $\rho^*$ belongs (GP).</li>
+                        <li>Observe some data.</li>
+                        <li>Keep functions that are compatible with the data.</li>
+                    </ul>
+                </div>
+                <img height="600px" src="./images/variance_1_samples.png">
+            </section>
+            <section data-auto-animate>
+                <div>
+                    <ul>
+                        <li>Use prior knowledge to construct a class of functions to which $\rho^*$ belongs (GP).</li>
+                        <li>Observe some data.</li>
+                        <li>Keep functions that are compatible with the data.</li>
+                    </ul>
+                </div>
+                <div data-id="animcontainer">
+                <img height="600px" src="./images/variance_1.png">
+                </div>
+                <div data-id="animtext">
+                    At the end, obtain a <span class="stronger">distribution</span> of probable functional shapes for $\rho^*$.
+                </div>
+            </section>
+            <section data-auto-animate>
+                <div data-id="animcontainer">
+                <img height="600px" src="./promising_region.png">
+                </div>
+                <div data-id="animtext">
+                    At the end, obtain a <span class="stronger">distribution</span> of probable functional shapes for $\rho^*$.
+                </div>
+                <br>
+                <h3>Use predicted function shape and<span class="stronger">uncertainty</span> to guide exploration and find optimum</h3>
+            </section>
+
+            <section data-auto-animate>
+                <h1>Example: Amino Acid Conformer Search</h1>
+                <img height="500px" src="./conformer.jpeg">
+            </section>
+            <section data-auto-animate>
+                <img height="500px" src="./conformer.jpeg">
+                <h2>Find stable configurations of the cysteine molecule</h2>
+                <br>
+                <h4>Optimization problem: find configuration with minimum energies</h4>
+                <ul>
+                    <li><span class="stronger">Moderate dimensional</span> (5D) input space (dihedral angles)</li>
+                    <li>Target (energy) is <span class="stronger">expensive</span> to compute</li>
+                    <li>Want to find all <span class="stronger">local</span> minima</li>
+                </ul>
+                <br>
+                <div class='footer'>
+                    <a href="https://doi.org/10.1021/acs.jctc.0c00648">Efficient Amino Acid Conformer Search with Bayesian Optimization</a>, L. Fang, E. Makkonen, M Todorović, P. Rinke and X. Chen (2021)
+                  </div>
+            </section>
+            <section >
+                <h2>Energy Landscape Modelling</h2>
+                Use high accuracy energy predictions at various configurations to fit a probabilistic model
+                <img height="500px" src="./boss_procedure.jpeg">
+                <div>
+                    <ul>
+                    <li>Bayesian Optimization is used to propose candidate stable configurations</li>
+                    <li>Energy of candidate configurations is computed at high-accuracy</li>
+                    <li>Model is updated with new data and loop continues</li>
+                </div>
+            </section>
+            <section data-auto-animate>
+                <h3 data-id="animcontainer">Method is able to recover the energy landscape and its minima</h3>
+                <img height="500px" src="./predicted_landscape.jpeg">
+                <h5>Predicted energy landscape</h5>
+            </section>
+            <section data-auto-animate>
+                <h3 data-id="animcontainer">... and to find the 15 most stable conformers in <span class="stronger">as few as 1000 energy computations</span></h3>
+                <img height="500px" src="./predicted_conformers.jpeg">
+                <h4>Predicted most stable conformers</h4>
+            </section>
+        
+            <section>
+                <h2>Summary</h2>
+                <div>
+                    Bayesian Optimization is a powerful tool to optimize expensive, noisy, black-box functions
+                    <ul>
+                        <li>Use prior knowledge to guide exploration</li>
+                        <li>Provide probabilistic predictions</li>
+                        <li>Can be used to guide structure search</li>
+                </div>
+                <br>
+                <h3>Note that BO can also be applied in settings where we have</h3>
+                <ul>
+                    <li>multiple objectives</li>
+                    <li>different accuracy levels (multi-fidelity)</li>
+                    <li>combinatorial inputs</li>
+                    <li>indirect data</li>
+                </ul>
+            </section>
+            <section>
+                <h2>Resources</h2>
+                <h3>Bayesian Optimization (BO)</h3>
+                <ul>
+                    <li><a href="https://arxiv.org/abs/1807.02811">A Tutorial on Bayesian Optimization</a>, P.I. Frazier (2018)</li>
+                    <li><a href="https://arxiv.org/pdf/2206.03301">Recent Advances in Bayesian Optimization</a>, X. Want, Y. Jin, S. Schmitt, M. Olhofer (2022)</li>
+                    <li><a href="https://proceedings.neurips.cc/paper_files/paper/2023/hash/f2b1b2e974fa5ea622dd87f22815f423-Abstract-Conference.html">Library fo Bayesian Optimization over chemical space</a>, Griffiths et al (2023)</li>
+                    <li><a href="https://doi.org/10.1021/acs.jctc.0c00648">Amino Acid Conformer Search with Bayesian Optimization</a>, L. Fang et al (2021)</li>                    
+                </ul>
+                
+            </section>
+
+            <section data-auto-animate>
+                <h2>Other current hot topics in ML / Life Science ...</h2>
+                <br>
+                <h3>Causal ML: Untangle which actions (treatments) yield which effects</h3>
+                <div data-id="causal">
+                    <img height="500px" src="./causal_ml_1.png">
+                </div>
+                <ul>
+                    <li><a href="https://doi.org/10.1098/rsos.220638">Causal machine learning for healthcare and precision medicine</a> Sanchez et al, R. Soc. Open Sci. (2022)</li>
+                </ul>
+            </section>
+            <section data-auto-animate>
+                <h2 data-id="banner">Other current hot topics in ML / Life Science ...</h2>
+                <br>
+                <h3>Causal ML: Untangle which actions (treatments) yield which effects</h3>
+                <div data-id="causal">
+                    <img height="500px" src="./causal_ml_2.png">
+                </div>
+                <ul>
+                    <li><a href="https://doi.org/10.1098/rsos.220638">Causal machine learning for healthcare and precision medicine</a> Sanchez et al, R. Soc. Open Sci. (2022)</li>
+                </ul>
+            </section>
+            <section data-auto-animate>
+                <h2 data-id="banner">Other current hot topics in ML / Life Science ...</h2>
+                <br>
+                <h3>Generative models (diffusion)</h3>
+                <div data-id="causal">
+                    <img height="500px" src="./diffusion.png">
+                </div>
+                <div>
+                <ul>
+                    <li><a href="https://doi.org/10.48550/arXiv.2308.05027">Full-Atom Generation of in vitro Functioning Antibodies</a> Martinkus et al, NeurIPS (2024)</li>
+                </ul>
+                </div>
+                <br>
+                Other useful resource:
+                <div>
+                    <a href="https://github.com/virtualramblas/awesome-deep-learning-4-life-sciences">Collection of resources for Deep Learning in Python for Life Sciences </a>
+    
+                </div>
+            </section>
+
+
+            <section> 
+                <h2>... and how you can link them to competence centers within ISC</h2>
+                <div data-id="animcontainer" class="tiles-container">
+                    <div class="tile tile-style2">
+                        <h4 class="h4-style1">Grégory Mermoud</h4>
+                        <img src="gregory_mermoud.png" height="150px" alt="Grégory Mermoud">
+                        <div>
+                        <ul class="people-list">
+                            <li>LLMS</li>
+                            <li>Distributed systems</li>
+                            <li>Causal ML</li>
+                        </ul>
+                        </div>
+                    </div>
+        
+                    <div class="tile tile-style2">
+                        <h4 class="h4-style1">Pamela Delgado</h4>
+                        <img src="pamela_delgado.jpg" height="150px" alt="Pamela Delgado">
+                        <div>
+                            <ul class="people-list">
+                            <li>Data engineering</li>
+                            <li>Infrastructure for ML</li>
+                        </ul>
+                        </div>
+                    </div>
+        
+                    <div class="tile tile-style2">
+                        <h4 class="h4-style1">Louis Lettry</h4>
+                        <img src="louis_lettry.png" height="150px" alt="Louis Lettry">
+                        <div>
+                        <ul class="people-list">
+                            <li>Computer vision</li>
+                        </ul>
+                        </div>
+                    </div>
+        
+                    <div class="tile tile-style2">
+                        <h4 class="h4-style1">Davide Calvaresi</h4>
+                        <img src="davide_calvaresi.jpg" height="150px" alt="Davide Calvaresi">
+                        <div>
+                        <ul class="people-list">
+                            <li>Mulit-agent systems</li>
+                            <li>explainable AI</li>
+                        </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section data-auto-animate>
+                <h1>Thank you for your attention</h1>
+            </section>
+            <section data-auto-animate=>
+                <h1>Thank you for your attention</h1>
+                <br>
+                <h2>Questions?</h2>
+            </section>
+
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/reveal.min.js"></script>
+    <script src="plugin/math/math.js"></script>
+    <script>
+        Reveal.initialize({
+            controls: false, 
+
+             // The "normal" size of the presentation, aspect ratio will
+            // be preserved when the presentation is scaled to fit different
+            // resolutions. Can be specified using percentage units.
+            width: 1920,
+            height: 1200,
+
+            // Factor of the display size that should remain empty around
+            // the content
+            margin: 0.06,
+
+            // Bounds for smallest/largest possible scale to apply to content
+            minScale: 0.2,
+            maxScale: 2.0,
+            plugins: [RevealMath.KaTeX] });
+    </script>
+</body>
+</html>

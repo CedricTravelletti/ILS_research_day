@@ -1,0 +1,163 @@
+/* custom-styles.css */
+
+.reveal .slides .stronger {
+    font-weight: bolder; /* You can adjust the value as needed */
+    color: red;
+}
+
+.reveal .slides h3 {
+    text-align: left;
+    font-size: 100%;
+}
+.reveal .slides .h4-style1 {
+    font-weight: bolder;
+    text-align: center;
+    font-size: 80%;
+    color: white;
+}
+
+.reveal .slides .h4-style2 {
+    text-align: center;
+    font-size: 60%;
+    color: white;
+}
+
+.reveal .slides .materialsh4 {
+    font-weight: bolder;
+    text-align: left;
+    font-size: 70%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    color: white;
+}
+
+.image-grid {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+.tile-style1 {
+    text-align: center;
+}
+
+.tile-style1 img {
+    max-width: 100px; /* Adjust the size as needed */
+    height: auto;
+}
+
+.tile-style3 img {
+    max-width: 250px; /* Adjust the size as needed */
+    max-height: 250px;
+    height: 250px;
+}
+
+.tile-style1 p {
+    margin-top: 10px;
+    font-size: 14px; /* Adjust the size as needed */
+}
+
+.tiles-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 20px;
+    transition: transform 10.1s linear;
+}
+
+.tile-style2 {
+    width: 40%;
+    height: 60%;
+    background-color: 	#854442;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    border-radius: 10px;
+    transition: transform 10.1s linear;
+    color: white;
+    margin: 15px;
+}
+
+.tile-style-alpha {
+    width: 40%;
+    height: 60%;
+    background-color: 	#854442;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    border-radius: 10px;
+    transition: transform 10.1s linear;
+    opacity: 0.5;
+}
+
+.tile:hover {
+    transform: scale(1.05);
+}
+
+.reveal .slide .imgstyle {
+    width: 150%;
+}
+
+.people-list li {
+    font-size: 22px; /* Adjust the size as needed */
+}
+
+.reveal .footer {
+    position: absolute;
+    bottom: -9em;
+    right: 0.1em;
+    font-size: 0.3em;
+}
+
+.rounded-box-small-data {
+    text-align: left;
+    border: 6px solid #3c7baf; /* Border color and thickness */
+    border-radius: 15px; /* Rounded corners */
+    padding: 15px; /* Space inside the box */
+    margin: 15px; /* Space outside the box */
+    width: fit-content; /* Adjust the box width to fit the content */
+}
+
+.rounded-box-big-data {
+    text-align: left;
+    border: 6px solid #0fe6a5; /* Border color and thickness */
+    border-radius: 15px; /* Rounded corners */
+    padding: 15px; /* Space inside the box */
+    margin: 15px; /* Space outside the box */
+    width: fit-content; /* Adjust the box width to fit the content */
+}
+
+.reveal .slides .left-aligned-list {
+    text-align: left;
+}
+
+.reveal .slides .myblue {
+    color: #3c7baf;
+}
+
+.reveal .slides .mygreen {
+    color: #0fe6a5;
+}
+
+.rounded-box-deterministic {
+    text-align: left;
+    border: 6px solid #837a77; /* Border color and thickness */
+    border-radius: 15px; /* Rounded corners */
+    padding: 15px; /* Space inside the box */
+    margin: 15px; /* Space outside the box */
+    width: fit-content; /* Adjust the box width to fit the content */
+}
+
+.rounded-box-probabilistic {
+    text-align: left;
+    border: 6px solid #e6d057; /* Border color and thickness */
+    border-radius: 15px; /* Rounded corners */
+    padding: 15px; /* Space inside the box */
+    margin: 15px; /* Space outside the box */
+    width: fit-content; /* Adjust the box width to fit the content */
+}
+
+.reveal .slides .myyellow {
+    color: #e6d057;
+}
+
+.reveal .slides .mybrown {
+    color: #837a77;
+}
